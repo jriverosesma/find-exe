@@ -12,11 +12,11 @@ The following snippet provides an example of how to do this:
 import os, platform, shutil, subprocess
 
 COMMANDS = {
-    "bash": [["bash","-l","-c","echo $PATH"], ["bash","-i","-c","echo $PATH"]],
-    "zsh":  [["zsh","-l","-c","print -r -- $path | paste -sd: -"], ["zsh","-i","-c","echo $PATH"]],
-    "fish": [["fish","-l","-c","string join : $PATH"], ["fish","-i","-c","string join : $PATH"]],
-    "sh":   [["sh","-l","-c","echo $PATH"], ["sh","-i","-c","echo $PATH"]],
-    "xonsh":[["xonsh","-i","--login","-c","print(':'.join($PATH))"], ["xonsh","-i","-c","print(':'.join($PATH))"]],
+    "bash": [["bash", "-l", "-c", "echo $PATH"], ["bash", "-i", "-c", "echo $PATH"]],
+    "zsh":  [["zsh", "-l", "-c", "print -r -- $path | paste -sd: -"], ["zsh", "-i", "-c", "echo $PATH"]],
+    "fish": [["fish", "-l", "-c", "string join : $PATH"], ["fish", "-i", "-c", "string join : $PATH"]],
+    "sh":   [["sh", "-l", "-c", "echo $PATH"], ["sh", "-i", "-c", "echo $PATH"]],
+    "xonsh": [["xonsh", "-i", "--login", "-c", "print(':'.join($PATH))"], ["xonsh", "-i", "-c", "print(':'.join($PATH))"]],
 }
 
 def _windows_path() -> list[str]:
