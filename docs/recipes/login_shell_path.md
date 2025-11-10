@@ -39,8 +39,8 @@ def _posix_path(shell: str) -> list[str]:
             continue
         p = subprocess.run(argv, capture_output=True, text=True)
         if p.returncode == 0 and p.stdout.strip():
-            return p.stdout.strip().split(os.pathsep)
-    return os.environ.get("PATH","").split(os.pathsep)
+            return [s for s in p.stdout.strip().split(os.pathsep) if s]
+    return [s for s in os.environ.get("PATH", "").split(os.pathsep) if s]
 
 def shell_path(*, system: str | None = None, shell: str | None = None) -> list[str]:
     sysname = system or platform.system()
