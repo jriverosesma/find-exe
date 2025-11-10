@@ -31,7 +31,7 @@ def _windows_path() -> list[str]:
         p = subprocess.run(argv, capture_output=True, text=True)
         if p.returncode == 0 and p.stdout.strip():
             return [s for s in p.stdout.strip().split(os.pathsep) if s]
-    return os.environ.get("PATH","").split(os.pathsep)
+    return [s for s in os.environ.get("PATH", "").split(os.pathsep) if s]
 
 def _posix_path(shell: str) -> list[str]:
     for argv in COMMANDS.get(shell, COMMANDS["bash"]):
